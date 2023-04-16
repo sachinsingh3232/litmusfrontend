@@ -1,0 +1,45 @@
+.instruction-container {
+    margin: auto;
+    max-width: 600px;
+    text-align: center;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .instruction-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .instruction-item {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    max-width: 300px;
+  }
+  
+  .instruction-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: #0088cc;
+  }
+  
+  .instruction-item p {
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .instruction-best {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
