@@ -5,6 +5,7 @@ import Widget from "../../components/Widget/Widget";
 import Chart from "../../components/Chart/Chart"
 import axios from "axios";
 import { useEffect, useState } from "react";
+const apiURL=process.env.REACT_APP_API_URL
 
 const AdminHome = () => {
   const [data, setData] = useState();
@@ -12,7 +13,7 @@ const AdminHome = () => {
   const [attempts, setAttempts] = useState(0);
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get("http://localhost:8000/app/user/findAllUser", { withCredentials: true });
+      const res = await axios.get(`${apiURL}/app/user/findAllUser`, { withCredentials: true });
       console.log(res.data);
       setData(res.data);
     };

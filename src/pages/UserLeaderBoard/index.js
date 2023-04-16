@@ -1,12 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import './style.scss';
+const apiURL=process.env.REACT_APP_API_URL
 const Leaderboard = () => {
     const [data, setData] = useState();
     useEffect(() => {
      const getData = async () => {
          try {
-            const res = await axios.get('http://localhost:8000/app/leaderBoard/findRanking', { withCredentials: true })
+            const res = await axios.get(`${apiURL}/app/leaderBoard/findRanking`, { withCredentials: true })
             console.log(res)
             setData(res.data.ranking)
          } catch (e) {
