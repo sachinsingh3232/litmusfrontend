@@ -115,8 +115,8 @@ function Level() {
         res.data.message === undefined && setLevel(level + 1);
         res.data.message === undefined &&
           localStorage.setItem("level", JSON.stringify(level + 1));
-      (parseInt(localStorage.getItem("timeLeft")) === 0 ||
-      parseInt(localStorage.getItem("life")) === 0)&&deadendApiCall();
+//       (parseInt(localStorage.getItem("timeLeft")) === 0 ||
+//       parseInt(localStorage.getItem("life")) === 0)&&deadendApiCall();
       })
       .catch((e) => console.log(e));
   };
@@ -140,11 +140,11 @@ function Level() {
   }, []);
   useEffect(() => {
     if (
-      parseInt(localStorage.getItem("timeLeft")) === 0) {
+      parseInt(localStorage.getItem("timeLeft")) === 0 || parseInt(localStorage.getItem("life")) === 0) {
       deadendApiCall();
       console.log("deadendReached");
     }
-  }, [timeLeft]);
+  }, [timeLeft,life]);
   useEffect(() => {
     if (timeLeft === 0) {
       // do something when timer ends
