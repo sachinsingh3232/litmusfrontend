@@ -144,7 +144,7 @@ function Level() {
       deadendApiCall();
       console.log("deadendReached");
     }
-//   }, [timeLeft]);
+  }, [timeLeft]);
   useEffect(() => {
     if (timeLeft === 0) {
       // do something when timer ends
