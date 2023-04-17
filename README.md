@@ -1,6 +1,6 @@
 # Guess Word Game
 
-Backend Repo Link- https://github.com/sachinsingh3232/litmusfrontend
+Backend Repo Link- https://github.com/sachinsingh3232/litmusbackend
 
 Guess Word is a simple game built using React where users have to guess the link between 4 pictures. The game is designed to test the user's ability to recognize patterns and make connections between seemingly unrelated objects.
 
