@@ -19,8 +19,9 @@ function Register() {
       .then((response) => {
         console.log(response.data);
         typeof response.data === "object"
-          ? navigate("/home")
+          ? navigate("/")
           : alert(response.data);
+      typeof response.data === "object" && alert("signup successfull);
       })
       .catch((error) => {
         console.error(error);
