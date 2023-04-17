@@ -16,13 +16,17 @@ import { Link, useNavigate } from "react-router-dom";
 // import { useContext } from "react";
 import axios from "axios";
 const apiURL=process.env.REACT_APP_API_URL
-
 const Sidebar = () => {
   const navigate = useNavigate();
   // const { dispatch } = useContext(DarkModeContext);
     const logout=async()=>{
 
-    const res=await axios.get(`${apiURL}/app/user/LogOut`, { withCredentials: true })
+    const res=await axios.get(`${apiURL}/app/user/LogOut`, {
+      headers: { "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true },
+      withCredentials: true,
+    })
     navigate('/adminlogin')
     console.log(res)
     }

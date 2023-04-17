@@ -8,7 +8,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // import { BASE_URL } from "../../helper"
 const apiURL=process.env.REACT_APP_API_URL
-
 export default function UserList({ setUser, setMessage, Message, user }) {
   const [data, setData] = useState([]);
   const [toggle, setToggle] = useState(0);
@@ -20,7 +19,12 @@ export default function UserList({ setUser, setMessage, Message, user }) {
   useEffect(() => {
     const getAllUsers = async () => {
       try {
-        const res = await axios.get(`${apiURL}/app/user/findAllUser`, { withCredentials: true })
+        const res = await axios.get(`${apiURL}/app/user/findAllUser`, {
+          headers: { "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true },
+          withCredentials: true,
+        })
         setData(res.data)
       } catch (e) {
         console.log(e)

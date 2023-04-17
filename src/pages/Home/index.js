@@ -14,6 +14,9 @@ function Home() {
   const logOut = () => {
     axios
       .get(`${apiUrl}/app/user/logout`, {
+        headers: { "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true },
         withCredentials: true,
       })
       .then((response) => {
@@ -24,7 +27,7 @@ function Home() {
   return (
     <div>
       <div>
-        <h1 className="">Connect</h1>
+        <h1 className="">Guess Word</h1>
         <div className="spanContainer">
           <span>Hello,</span>
           <span>{typeof name === "string" ? name : "Name"}</span>

@@ -7,7 +7,12 @@ const Leaderboard = () => {
     useEffect(() => {
      const getData = async () => {
          try {
-            const res = await axios.get(`${apiURL}/app/leaderBoard/findRanking`, { withCredentials: true })
+            const res = await axios.get(`${apiURL}/app/leaderBoard/findRanking`, {
+              headers: { "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Credentials": true },
+              withCredentials: true,
+            })
             console.log(res)
             setData(res.data.ranking)
          } catch (e) {

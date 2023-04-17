@@ -59,7 +59,9 @@ function Level() {
         `${apiUrl}/app/image/fetchLevelImages`,
         { level: LSlevel },
         {
-          header: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true },
           withCredentials: true,
         }
       )
@@ -95,7 +97,12 @@ function Level() {
       level4: level4,
     };
     axios
-      .post(`${apiUrl}/app/user/lastData`, data, { withCredentials: true })
+      .post(`${apiUrl}/app/user/lastData`, data, {
+        headers: { "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true },
+        withCredentials: true,
+      })
       .then((res) => {
         console.log(res);
         console.log(res.data);
@@ -116,7 +123,12 @@ function Level() {
   };
   const deadendApiCall = () => {
     axios
-      .post(`${apiUrl}/app/user/deadEnd`, {level: level,level1: level1,level2: level2 ,level3: level3,level4:level4}, { withCredentials: true })
+      .post(`${apiUrl}/app/user/deadEnd`, {level: level,level1: level1,level2: level2 ,level3: level3,level4:level4}, {
+        headers: { "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true },
+        withCredentials: true,
+      })
       .then((res) => {
         console.log(res);
         console.log(res.data);
@@ -160,7 +172,7 @@ function Level() {
           <h4>Level {level}</h4>
         </div>
         <div className="heading">
-          <h1>Connect</h1>
+          <h1>Guess Word</h1>
         </div>
         <div className="deadendContainer">
           <div className="lifeContainer">
