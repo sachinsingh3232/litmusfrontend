@@ -2,14 +2,14 @@
 
 Backend Repo Link- https://github.com/sachinsingh3232/litmusfrontend
 
-Connect is a simple game built using React where users have to guess the link between 4 pictures. The game is designed to test the user's ability to recognize patterns and make connections between seemingly unrelated objects.
+Guess Word is a simple game built using React where users have to guess the link between 4 pictures. The game is designed to test the user's ability to recognize patterns and make connections between seemingly unrelated objects.
 
 ## Installation
 
 To run the game locally, follow the steps below:
 
-1.Clone this repository to your local machine using git clone https://github.com/your-username/connect-game.git
-2.Navigate to the project directory using cd connect-game
+1.Clone this repository to your local machine using git clone https://github.com/sachinsingh3232/litmusfrontend.git
+2.Navigate to the project directory using cd Guess Word-game
 3.Install the required dependencies using npm install
 4.Run the game using npm start
 5.Open http://localhost:3000 in your browser to play the game.
@@ -26,7 +26,7 @@ The game consists of 4 rounds.
 ## Technologies Used
 
 
-The Connect game was built using the following technologies:
+The Guess Word game was built using the following technologies:
 
 1.React: a JavaScript library for building user interfaces
 2.HTML: the markup language used to structure the game's interface
@@ -34,4 +34,4 @@ The Connect game was built using the following technologies:
 
 ## Contributing
 
-Contributions to the Connect game are welcome! If you find a bug or have a suggestion for a new feature, please open an issue or submit a pull request.
+Contributions to the Guess Word game are welcome! If you find a bug or have a suggestion for a new feature, please open an issue or submit a pull request.
