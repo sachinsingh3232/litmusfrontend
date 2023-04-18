@@ -40,7 +40,7 @@ const Leaderboard = () => {
                 <tr key={row.id}>
                   <td>{index + 1}</td>
                   <td>{row.name}</td>
-                  <td>{row.score}</td>
+                  <td>{row.totalScore}</td>
                   <td>{row.time}</td>
                 </tr>
               ))}
