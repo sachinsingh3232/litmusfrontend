@@ -20,6 +20,7 @@ function Home() {
         withCredentials: true,
       })
       .then((response) => {
+      localStorage.clear();
         response.data && navigate("/");
       })
       .catch((e) => console.log(e));
