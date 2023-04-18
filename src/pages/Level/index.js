@@ -116,6 +116,7 @@ function Level() {
           localStorage.setItem("level", JSON.stringify(level + 1));
         }
         // res.data?.message === false && life === 1 && deadendApiCall();
+      console.log(res.data.message);
         res.data?.message === true && navigate("/home");
 
         // res.data.message === undefined &&
