@@ -47,26 +47,23 @@ function Level() {
   const [data, setData] = useState("");
   const apiUrl = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
-  // console.log(localStorage.getItem("level"));
   const getData = () => {
-    // const LSlevel = 1;
-
     const LSlevel = localStorage.getItem("level");
     setLevel(parseInt(LSlevel));
-    // console.log(LSlevel);
     axios
       .post(
         `${apiUrl}/app/image/fetchLevelImages`,
         { level: LSlevel },
         {
-          headers: { "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true },
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+          },
           withCredentials: true,
         }
       )
       .then((response) => {
-        // console.log(response.data);
         typeof response.data === "object"
           ? setData(response.data)
           : alert(response.data);
@@ -78,9 +75,7 @@ function Level() {
   const checkAnswer = () => {
     console.log(typeof timeLeft);
 
-    // localStorage.setItem("timeLeft", timeLeft);
     const LStimeLeft = parseInt(localStorage.getItem("timeLeft"));
-    // console.log(localStorage.getItem(timeLeft));
     console.log(LStimeLeft);
     setTimeLeft(parseInt(LStimeLeft));
     level === 1 && setLevel1(600 - LStimeLeft);
@@ -98,36 +93,58 @@ function Level() {
     };
     axios
       .post(`${apiUrl}/app/user/lastData`, data, {
-        headers: { "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true },
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         withCredentials: true,
       })
       .then((res) => {
         console.log(res);
         console.log(res.data);
         console.log(timeLeft);
-        res.data?.message === false &&
+        if (res.data?.message === false) {
           localStorage.setItem("life", JSON.stringify(life - 1));
-        res.data?.message === false && setLife(life - 1);
-        res.data?.message === true && navigate("/home");
-        res.data.message === undefined && setData(res.data);
-        res.data.message === undefined && setLevel(level + 1);
-        res.data.message === undefined &&
+          life === 1 && deadendApiCall();
+          setLife(life - 1);
+          alert("wrong answer");
+        } else alert("right answer");
+        if (res.data.message === undefined) {
+          setData(res.data);
+          setLevel(level + 1);
           localStorage.setItem("level", JSON.stringify(level + 1));
-//       (parseInt(localStorage.getItem("timeLeft")) === 0 ||
-//       parseInt(localStorage.getItem("life")) === 0)&&deadendApiCall();
+        }
+        // res.data?.message === false && life === 1 && deadendApiCall();
+        res.data?.message === true && navigate("/home");
+
+        // res.data.message === undefined &&
+        // localStorage.setItem("timeLeft", JSON.stringify(timeLeft));
+        // res.data?.message === true && setLevel(1);
       })
       .catch((e) => console.log(e));
   };
   const deadendApiCall = () => {
+    alert("Deadend has reached");
     axios
-      .post(`${apiUrl}/app/user/deadEnd`, {level: level,level1: level1,level2: level2 ,level3: level3,level4:level4}, {
-        headers: { "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true },
-        withCredentials: true,
-      })
+      .post(
+        `${apiUrl}/app/user/deadEnd`,
+        {
+          level: level,
+          level1: level1,
+          level2: level2,
+          level3: level3,
+          level4: level4,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+          },
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         console.log(res);
         console.log(res.data);
@@ -138,17 +155,17 @@ function Level() {
   useEffect(() => {
     getData();
   }, []);
-  useEffect(() => {
-    if (
-      parseInt(localStorage.getItem("timeLeft")) === 0 || parseInt(localStorage.getItem("life")) === 0) {
-      deadendApiCall();
-      console.log("deadendReached");
-    }
-  }, [timeLeft,life]);
+  // useEffect(() => {
+  //   if (timeLeft === 0) {
+  //     // deadendApiCall();
+  //     console.log("deadendReached");
+  //   }
+  // }, [timeLeft]);
   useEffect(() => {
     if (timeLeft === 0) {
       // do something when timer ends
-      console.log("Timer ended");
+      deadendApiCall();
+      // console.log("Timer ended");
       return;
     }
 
@@ -169,7 +186,7 @@ function Level() {
           <h4>Level {level}</h4>
         </div>
         <div className="heading">
-          <h1>Guess Word</h1>
+          <h1>GuessGame</h1>
         </div>
         <div className="deadendContainer">
           <div className="lifeContainer">
