@@ -33,7 +33,7 @@ const Widget = ({ type,attempts,users }) => {
       data = {
         title: "ATTEMPTS",
         isMoney: false,
-        link: "View all orders",
+        link: "View all Attempts",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -72,7 +72,7 @@ const Widget = ({ type,attempts,users }) => {
           {type==='user'&&users}
           {type==='attempts'&&attempts}
         </span>
-        <span className="link">{data.link}</span>
+//         <span className="link" >{data.link}</span>
       </div>
       <div className="right">
         <div className="percentage positive">
