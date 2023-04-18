@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import "../../style.scss";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import Add from "../../img/addAvatar.png";
 function Register() {
   const navigate = useNavigate();
+  // const [loader, setLoader] = useState(0);
 
   const apiUrl = process.env.REACT_APP_API_URL;
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("creating account...");
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
@@ -17,19 +19,20 @@ function Register() {
     axios
       .post(`${apiUrl}/app/user/register`, data)
       .then((response) => {
-        console.log(response.data);
-        typeof response.data === "object"
-          ? navigate("/")
-          : alert(response.data);
+        if (typeof response.data === "object") {
+          alert("account created successfully");
+          navigate("/");
+        } else alert(response.data);
       })
       .catch((error) => {
+        alert("error creating account");
         console.error(error);
       });
   };
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Guess Word</span>
+        <span className="logo">GuessGame</span>
         <span className="logo">Register</span>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="display name" />
