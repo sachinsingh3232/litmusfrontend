@@ -36,7 +36,11 @@ const Leaderboard = () => {
                 <th>Rank</th>
                 <th>Name</th>
                 <th>Score</th>
-                <th>Time Taken</th>
+                <th>Total Time</th>
+                <th>Level1 Time</th>
+                <th>Level2 Time</th>
+                <th>Level3 Time</th>
+                <th>Level4 Time</th>
               </tr>
             </thead>
             <tbody>
@@ -44,8 +48,12 @@ const Leaderboard = () => {
                 <tr key={row.id}>
                   <td>{index + 1}</td>
                   <td>{row.name}</td>
-                  <td>{row.score}</td>
+                  <td>{row.totalScore}</td>
                   <td>{row.time}</td>
+                  <td>{row.level1}</td>
+                  <td>{row.level2}</td>
+                  <td>{row.level3}</td>
+                  <td>{row.level4}</td>
                 </tr>
               ))}
              
