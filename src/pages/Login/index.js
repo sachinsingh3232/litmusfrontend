@@ -8,26 +8,29 @@ function Login() {
   const navigate = useNavigate();
   const apiUrl = process.env.REACT_APP_API_URL;
   const data = { email: email, password: pwd };
+  // const [loader,setLoader] = useState()
   const handleClick = (e) => {
     e.preventDefault();
+    alert("checking credentials");
     axios
       .post(`${apiUrl}/app/user/login`, data, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true
+          "Access-Control-Allow-Credentials": true,
         },
         withCredentials: true,
       })
       .then((response) => {
         console.log(response.data);
-        typeof response.data === "object"
-          ? navigate("/home", { state: response.data })
-          : alert(response.data);
-        typeof response.data === "object" &&
+        if (typeof response.data === "object") {
+          alert("login successful");
           localStorage.setItem("name", response.data?.data.name);
+          navigate("/home", { state: response.data });
+        } else alert(response.data);
       })
       .catch((error) => {
+        alert("login failed");
         console.error(error);
       });
   };
