@@ -31,6 +31,7 @@ const AdminLogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     handleCheck();
+    alert("checking credentials");
     axios
       .post(`${apiUrl}/app/user/login`, data, {
         headers: { "Content-Type": "application/json",
