@@ -40,7 +40,7 @@ const Leaderboard = () => {
                 <th>Level1 Time</th>
                 <th>Level2 Time</th>
                 <th>Level3 Time</th>
-                <th>Level4 Time</th>
+//                 <th>Level4 Time</th>
               </tr>
             </thead>
             <tbody>
@@ -53,7 +53,7 @@ const Leaderboard = () => {
                   <td>{row.level1}</td>
                   <td>{row.level2}</td>
                   <td>{row.level3}</td>
-                  <td>{row.level4}</td>
+//                   <td>{row.level4}</td>
                 </tr>
               ))}
              
