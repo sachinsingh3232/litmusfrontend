@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.scss";
+import Right from "./right.mp3";
+import Wrong from "./wrong.mp3";
 import axios from "axios";
 // import { localStorage } from "window";
 import {
@@ -47,6 +49,10 @@ function Level() {
   const [data, setData] = useState("");
   const apiUrl = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
+
+  const rightAudio = new Audio(Right);
+  const wrongAudio = new Audio(Wrong);
+  
   const getData = () => {
     const LSlevel = localStorage.getItem("level");
     setLevel(parseInt(LSlevel));
@@ -108,8 +114,9 @@ const trimmedAns=answer.trim();
           localStorage.setItem("life", JSON.stringify(life - 1));
           life === 1 && deadendApiCall();
           setLife(life - 1);
+          wrongAudio.play();
           alert("wrong answer");
-        } else alert("right answer");
+        } else {rightAudio.play();alert("right answer");}
         if (res.data.message === undefined) {
           setData(res.data);
           setLevel(level + 1);
