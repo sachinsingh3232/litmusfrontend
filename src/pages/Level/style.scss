@@ -1,5 +1,5 @@
 .container{
- overflow: hidden;
+ // overflow: hidden;
     .headingContainer{
         display: flex;
         flex-direction: row;
@@ -63,10 +63,8 @@
 @media screen and (max-width: 700px) {
   .headingContainer{
         width:100%;
-        display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        padding: 1px 10px;
+        padding: 0px 0px;
    .heading{
     display:none;
    }
