@@ -32,7 +32,7 @@ function Register() {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">GuessGame</span>
+        <span className="logoName">GuessGame</span>
         <span className="logo">Register</span>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Display name" />
