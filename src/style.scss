@@ -12,6 +12,11 @@
         flex-direction: column;
         gap: 15px;
         align-items: center;
+        .logoName{
+            color: black;
+            font-weight: bold;
+            font-size: 34px;
+        }
         .logo{
             color: #5d5b8d;
             font-weight: bold;
@@ -66,11 +71,6 @@ font-size: 12px;
 @media screen and (max-width: 400px) {
   .formWrapper{
         padding: 20px 30px;
-    }
-}
-@media screen and (min-width: 401px) and (max-width: 700px) {
-  .formWrapper{
-        padding: 20px 45px;
     }
 }
 
