@@ -59,12 +59,12 @@ function Login() {
             Sign in
           </button>
         </form>
-        <h4>
+        <p>
           You don't have an account? <Link to="/register">Register</Link>
-        </h4>
-        <h4>
+        </p>
+        <p>
           Are you an Admin? <Link to="/adminlogin">Login</Link>
-        </h4>
+        </p>
       </div>
     </div>
   );
