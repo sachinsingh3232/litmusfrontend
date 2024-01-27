@@ -62,6 +62,9 @@
     }
 @media screen and (max-width: 700px) {
   .headingContainer{
+        width:100%;
+        display: flex;
+        flex-direction: row;
         justify-content: space-around;
         padding: 1px 0px;
    .heading{
