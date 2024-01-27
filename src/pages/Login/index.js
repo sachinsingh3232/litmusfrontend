@@ -41,13 +41,13 @@ function Login() {
         <form>
           <input
             type="email"
-            placeholder="email"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
-            placeholder="password"
+            placeholder="Password"
             value={pwd}
             onChange={(e) => setPwd(e.target.value)}
           />
