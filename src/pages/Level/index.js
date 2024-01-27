@@ -82,9 +82,9 @@ function Level() {
     level === 2 && setLevel2(600 - LStimeLeft - level1);
     level === 3 && setLevel3(600 - LStimeLeft - level1 - level2);
     level === 4 && setLevel4(600 - LStimeLeft - level1 - level2 - level3);
-
+const trimmedAns=answer.trim();
     const data = {
-      ans: answer,
+      ans: trimmedAns,
       level: level,
       level1: 600 - LStimeLeft,
       level2: level2,
