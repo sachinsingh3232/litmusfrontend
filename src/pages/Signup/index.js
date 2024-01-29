@@ -20,12 +20,12 @@ function Register() {
       .post(`${apiUrl}/app/user/Register`, data,{
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Methods": "POST",
-          "Access-Control-Allow-Headers": "Origin",
+          // "Access-Control-Allow-Methods": "POST",
+          // "Access-Control-Allow-Headers": "Origin",
           "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true,
+          // "Access-Control-Allow-Credentials": true,
         },
-        withCredentials: true,
+        // withCredentials: true,
       })
       .then((response) => {
         if (typeof response.data === "object") {
