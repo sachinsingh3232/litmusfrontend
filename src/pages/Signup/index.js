@@ -21,7 +21,7 @@ function Register() {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Methods": "POST",
-          "Access-Control-Allow-Headers": "Origin"
+          "Access-Control-Allow-Headers": "Origin",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Credentials": true,
         },
