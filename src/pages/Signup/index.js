@@ -25,7 +25,7 @@ function Register() {
           "Access-Control-Allow-Origin": "*",
           // "Access-Control-Allow-Credentials": true,
         },
-        // withCredentials: true,
+        withCredentials: true,
       })
       .then((response) => {
         if (typeof response.data === "object") {
