@@ -20,6 +20,8 @@ function Register() {
       .post(`${apiUrl}/app/user/Register`, data,{
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Methods": "GET, PUT, POST",
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Credentials": true,
         },
