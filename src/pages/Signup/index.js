@@ -17,12 +17,7 @@ function Register() {
     const password = e.target[2].value;
     const data = { name: displayName, email: email, password: password };
     axios
-      .post(`${apiUrl}/app/user/register`, data,{
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true,
-        },
+      .post(`${apiUrl}/app/user/Register`, data,{
         withCredentials: true,
       })
       .then((response) => {
