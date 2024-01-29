@@ -18,6 +18,11 @@ function Register() {
     const data = { name: displayName, email: email, password: password };
     axios
       .post(`${apiUrl}/app/user/Register`, data,{
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         withCredentials: true,
       })
       .then((response) => {
