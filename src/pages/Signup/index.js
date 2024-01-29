@@ -17,7 +17,14 @@ function Register() {
     const password = e.target[2].value;
     const data = { name: displayName, email: email, password: password };
     axios
-      .post(`${apiUrl}/app/user/register`, data)
+      .post(`${apiUrl}/app/user/register`, data,{
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
+        withCredentials: true,
+      })
       .then((response) => {
         if (typeof response.data === "object") {
           alert("account created successfully");
