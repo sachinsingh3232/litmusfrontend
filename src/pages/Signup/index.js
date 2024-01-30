@@ -11,14 +11,18 @@ function Register() {
   const apiUrl = process.env.REACT_APP_API_URL;
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("creating account...");
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
+    if(!password || !displayName || !email){
+      alert('All fields are mandatory!');
+      return;
+    }
     if(password.length<8){
       alert('The password should be at least 8 characters long');
       return;
     }
+    alert("creating account...");
     const data = { name: displayName, email: email, password: password };
     axios
       .post(`${apiUrl}/app/user/Register`, data,
