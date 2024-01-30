@@ -24,7 +24,7 @@ function Login() {
       .then((response) => {
         console.log(response.data);
         if (typeof response.data === "object") {
-          alert("login successful");
+          // alert("login successful");
           localStorage.setItem("name", response.data?.data.name);
           navigate("/home", { state: response.data });
         } else alert(response.data);
