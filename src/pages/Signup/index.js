@@ -12,7 +12,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("creating account...");
-    const name = e.target[0].value;
+    const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
     const data = { name: displayName, email: email, password: password };
@@ -21,7 +21,7 @@ function Register() {
            { headers: { "Content-Type": "application/json" }, withCredentials: true })
       .then((response) => {
         if (typeof response.data === "object") {
-          alert("account created successfully");
+          // alert("account created successfully");
           navigate("/");
         } else alert(response.data);
       })
